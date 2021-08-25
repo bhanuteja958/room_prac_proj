@@ -1,0 +1,269 @@
+/* CSS Variables */
+:root{
+    --dark-grey:hsl(0, 0%, 63%);
+    --black:hsl(0, 0%, 0%);
+    --white:hsl(0, 0%, 100%);
+    --very-dark-grey:hsl(0, 0%, 27%)
+}
+
+/* CSS Resets */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size:12px;
+}
+
+body{
+    font-family: 'Spartan', sans-serif;
+}
+
+/* Hero content container */
+.container{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+/* Hero Top styling */
+.hero-top-container{
+    display: grid;
+    grid-template-columns: 60% 40%;
+    height: 65vh;
+}
+
+.hero-top-left{
+    background-image: url(./images/desktop-image-hero-1.jpg);
+    background-size: cover;
+    background-position: center;
+    padding:4rem 3rem;
+    transition:all 0.3s ease-in-out;
+}
+
+.hero-top-left header{
+    display: flex;
+    align-items: center;
+    color:var(--white)
+}
+
+
+header h2{
+    margin-right:3rem;
+    font-weight: 500;
+    font-size: 2rem;
+}
+
+header ul{
+    list-style: none;
+    display:flex;
+    column-gap: 2rem;
+}
+
+ul li{
+    cursor: pointer;
+    position: relative;
+}
+
+ul li::before{
+    content: "";
+    display: block;
+    position: absolute;
+    width:0%;
+    height:0.2rem;
+    background-color: white;
+    bottom:-0.3rem;
+    left:50%;
+    transform: translateX(-50%);
+    border-radius: 3rem;
+    transition: all 0.3s ease-in-out;
+    opacity:0;
+}
+
+li:hover::before{
+    width:30%;
+    opacity:1;
+}
+
+.mobile-header{
+    display: none;
+}
+
+.mobile-header nav{
+    position:absolute;
+    width:100%;
+    background-color: white;
+    top:0;
+    left:0;
+    display:flex;
+    column-gap: 3rem;
+    align-items: center;
+    padding:3rem;
+    display: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.mobile-header h2{
+    text-align: center;
+    width:100%;
+    color:white;
+    font-size: 1.5rem;
+}
+
+.hero-top-right{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:0 6rem;
+    position: relative;
+}
+
+.carousel-item h1{
+    font-size:3rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.carousel-item p{
+    margin:2rem 0;
+    line-height: 1.5rem;
+    color:var(--dark-grey);
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-top-right .cta{
+    display:flex;
+    align-items: center;
+    column-gap: 3rem;
+    cursor: pointer;
+}
+
+.cta h4{
+    letter-spacing: 0.6rem;
+}
+
+.cta:hover{
+    color:var(--dark-grey);
+}
+
+.cta:hover > svg{
+    fill:var(--dark-grey);
+}
+
+
+.carousel-controls-container{
+    background-color: black;
+    position:absolute;
+    bottom:0;
+    left:0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width:30%;
+}
+
+.carousel-left-control,.carousel-right-control{
+    padding:1rem 0;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.carousel-left-control:hover,.carousel-right-control:hover{
+    background-color: var(--dark-grey);
+}
+
+
+/* Hero Bottom styling */
+.hero-bottom-container{
+    display: grid;
+    grid-template-columns: auto 44% auto;
+    height:35vh;
+}
+
+.hero-bottom-middle{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding:0 2rem;
+}
+
+.hero-bottom-middle h4{
+    letter-spacing: 0.5rem;
+    margin-bottom:1rem;
+}
+
+.hero-bottom-middle p{
+    line-height: 1.5rem;
+    color: var(--dark-grey)
+}
+
+
+.hero-bottom-left img,.hero-bottom-right img{
+    width:100%;
+    height:100%;
+}
+
+
+/* Making website responsive */
+
+@media (max-width:600px){
+    .hero-top-container{
+        display:flex;
+        flex-direction: column;
+        min-height:100vh;
+        height:auto;
+    }
+
+    .hero-top-left{
+        position: relative;
+        padding:3rem;
+    }
+
+    .hero-top-left header{
+        display:none;
+    }
+
+    .mobile-header{
+        display: flex;
+    }
+
+    .mobile-header nav{
+        display: flex;
+        transform: translateY(-100px);
+    }
+ 
+
+    .mobile-header ul{
+        list-style-type: none;
+        display: flex;
+        column-gap: 2rem;
+        font-weight: bold;
+        font-size:1rem;
+    }
+
+    .hero-top-left{
+        height:50vh;
+    }
+
+    .hero-top-right{
+        padding:3rem;
+        
+    }
+    .carousel-controls-container{
+        bottom:100%;
+        left:100%;
+        right:0;
+        transform: translateX(-100%);
+    }
+
+    .hero-bottom-container{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .hero-bottom-middle{
+        padding:3rem;
+    }
+}
